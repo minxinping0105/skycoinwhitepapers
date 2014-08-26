@@ -5,7 +5,7 @@ Skycoin: 一种新的分布式共识系统
 Abstract: 
 摘要：
 A new cryptographic primitive known as a public broadcast channel is introduced. A new consensus algorithm implementation, Obelisk and new coin Skycoin built upon Obelisk are introduced. Obelisk is not a single algorithm, but an implementation employing multiple techniques to deliver specific security guarantees.
-本文介绍了一种称之为公众广播频道的加密原语，并引入一种新的共识算法，Obelisk以及基于Obelisk的Skycoin。Obelisk并不是一种单一算法，而是一整套采用多种技术来实现特定安全保证的方法论。
+本文介绍了一种称之为公开广播频道的加密原语，并引入一种新的共识算法，Obelisk以及基于Obelisk的Skycoin。Obelisk并不是一种单一算法，而是一整套采用多种技术来实现特定安全保证的方法论。
 
 Bitcoin
 =======
@@ -169,7 +169,7 @@ We have proven mathematically that our system achieves consensus, has the securi
 我们已经数学意义上证明我们的系统可以获得共识，拥有我们想要的安全性，并且在正常网络状态下工作正常。我们现有的一些数据结构从未在任何虚拟币或者软件中被见到过。现在我们正在进行可供部署的原型系统开发。Skycoin开发流程是迭代性的。随着我们处理一些细节，解决已知问题，测试系统并获得反馈，将会有一些改动，改进以及重新调整。
 
 Public Broadcast Channels: Personal Blockchains
-公众广播频道：个人区块链
+公开广播频道：个人区块链
 ==========
 
 In Adversarial Byzantine Generals Problem there are several communication assumptions
@@ -195,7 +195,7 @@ We introduce a new cryptographic primitive called a public broadcast channel and
 - you cannot backdate a communication without being detected (linked timestamping/hash chain)
 - the messages arrive in order
 - the message cannot be modified in transmission
-我们引入一种称之为公众广播频道的新的加密原语并且描述了它的实现。这个原语具有如下属性：
+我们引入一种称之为公开广播频道的新的加密原语并且描述了它的实现。这个原语具有如下属性：
 - 你不能对A说一件事情，对B说另外一件事情
 - 通信是公开的
 - 通信不能来自除你之外的其他人（认证过的）
@@ -205,7 +205,7 @@ We introduce a new cryptographic primitive called a public broadcast channel and
 - 消息在传输中不能被修改
 
 The public broadcast channel is implemented as a block chain. Everyone can read the chain, but only the owner can mint blocks for it. To be valid for a personal chain, each block must be signed by the owners private key. 
-公众广播频道被实现成一个区块链。每一个人可以读取链，但是仅仅拥有者可以对它挖块。为了成为合法的个人链，每个区块必须用拥有者的私钥进行签名。
+公开广播频道被实现成一个区块链。每一个人可以读取链，但是仅仅拥有者可以对它挖块。为了成为合法的个人链，每个区块必须用拥有者的私钥进行签名。
 
 Each Obelisk node has a personal blockchain and it is the core primitive in the Obelisk system.
 每个Obelisk节点具有一个个人区块链，并且它是Obelisk系统的核心部分。
@@ -215,7 +215,7 @@ The public broadcast channel imposes several constraints
 - A node cannot publish a different version of an earlier block without detection (blocks are numbered and it would be detected if the node signed two different blocks with the same sequence number)
 - A node cannot backdate the time stamp on the receipt of a block, without delaying the publication of a block (timestamps only go up, time stamps increase monotonously with block sequence count)
 - A block in the middle of the chain cannot be changed without invalidating every block that comes after it (hashchain, each block header contains a hash of the previous block)
-公众广播频道强加了几个约束：
+公开广播频道强加了几个约束：
 - 一旦发布一个区块，它不能被取消发布 （区块被点对点的复制到所有订阅者。一旦一个区块已经被发布，它将扩散到所有订阅者。你必须销毁所有已经接收到区块的节点来从网络上擦除它）。
 - 一个节点不能发布一个之前区块的不同版本而不被检测到 （区块被编号并且如果节点使用同一个序列号签名了两个不同的区块将被检测到）
 - 在不延迟区块发布情况下，一个节点对于接收到的区块不能回溯时间戳 （时间戳仅仅增长，时间戳随着区块序列号单调增加）
@@ -225,7 +225,7 @@ Obelisk:
 =======
 
 Each Obelisk node (Skycoin Consensus Node) has a public key (an identity) and personal blockchain (a public broadcast channel). Consensus decisions and communication happen within the personal blockchains of each Obelisk node. This is a public record of everything a node does. This allows the community to audit nodes for cheating and collusion. It gives the community a way identify nodes which are participating in attacks on the network and it makes public how decisions in the network are being made and which nodes are influencing those decisions.
-每个Obelish节点（Skycoin共识节点）拥有一个公钥（一个标识）和一个个人区块链（一个公众广播频道）。共识决定和通信发生在每个Obelisk节点的个人区块链内。这是一个该节点所有事情的公开记录。这让社区可以审计节点是否欺诈和勾结。它给予了社区一种方法识别正在参与网络上攻击的节点并且公开了网络如何进行决定，并且哪些节点正在影响那些决定。
+每个Obelish节点（Skycoin共识节点）拥有一个公钥（一个标识）和一个个人区块链（一个公开广播频道）。共识决定和通信发生在每个Obelisk节点的个人区块链内。这是一个该节点所有事情的公开记录。这让社区可以审计节点是否欺诈和勾结。它给予了社区一种方法识别正在参与网络上攻击的节点并且公开了网络如何进行决定，并且哪些节点正在影响那些决定。
 
 Each node has a list of other nodes that it subscribes to. Nodes with more subscribers are more "trusted" and yield more influence in the network. If the community does not trust the nodes representing them or feels that power within the network is too concentrated (or not concentrated enough) the community is able to collectively shift the balance of power in the network by collectively changing their trust relationships in the network.
 每个节点具有一个它所订阅节点的列表。具有更多订阅者的节点可以更加被信任并且在网络中产生更大影响。如果社区不相信代表它们的节点，或者感觉网络内的权利太过于集中（或者集中程度不够），社区能够通过集体的改变他们网络内的信任关系来集体移动网络内权利的平衡。
@@ -351,13 +351,13 @@ Publicly Verifiable Trusted Computing with Communicating Distributed Determinist
 =====
 
 We describe a system, where each node performs a computation in public. The computationa can be verified and replicated by any third party. This system consists of deterministic state machines communicating over a public broadcast channel (private blockchains).
-我们描述了一个系统，每个节点公开执行一种计算。该计算能被任何第三方验证和重复。这个系统由通过公众广播频道（私有区块链）进行通信的确定性状态机构成。
+我们描述了一个系统，每个节点公开执行一种计算。该计算能被任何第三方验证和重复。这个系统由通过公开广播频道（私有区块链）进行通信的确定性状态机构成。
 
 Consensus decisions published in the block chain become outputs of a deterministic state machine, whose inputs are public data. We require that the output published in a blockchain by a node, are a deterministic function of the block data published by the nodes subscribed to. Any third party can download the public inputs to a node and verify that the output matches exactly the output (the block ) produced and published by the node. 
 发布在区块链中的共识结果变为确定状态机的输出，它的输入为公开数据。我们要求，由一个节点在区块链中发布的输出，是一个由它所订阅节点区块数据的确定性函数。任何第三方可以下载一个节点的公开输入并且验证输出和由节点产生和发布的（区块）输出精确匹配。
 
 This approach was developed for and heavily influenced by research into adversarial Paxos. We call the implementation of Paxos on a public broadcast channel "Public Paxos".
-这种方法被开发用于并受到关于对抗性Paxos的研究的深刻影响。我们将公众广播频道上的Paxos实现称为“Public Paxos”。
+这种方法被开发用于并受到关于对抗性Paxos的研究的深刻影响。我们将公开广播频道上的Paxos实现称为“Public Paxos”。
 
 A third party auditor can produce a mathematical proof which can be indepedently verified by third parties, proving cheating by a dishonest node. Such cheating becomes bannable and results in automatic revocation of trust relationships. The node would be severed from the network by honest nodes and unable to influence voting decisions.
 一个第三方审计可以产生一个数学证明，并能被第三方独立验证，不诚信节点欺诈证明。这类欺诈可以被禁掉并且导致信任关系的自动撤销。
@@ -402,9 +402,9 @@ Overview:
 - the output block is a deterministic function of the queue of received messages over the last N blocks, for finite N
 概述：
 - 你有N个状态机
-- 每个状态机通过一个公众广播频道通信
+- 每个状态机通过一个公开广播频道通信
 - 每个机器的状态是从其他状态机接收到信息的队列
-- 每个被引用的状态机产生一个发布在机器公众广播频道的输出区块
+- 每个被引用的状态机产生一个发布在机器公开广播频道的输出区块
 - 输出区块包含接收到信息和数据的哈希 （收据）
 - 对于有限N，输出区块是最近N个区块接收到信息队列的一个确定性函数
 
@@ -425,7 +425,7 @@ For example, Distributed blockchain consensus with a reliable timestamping serve
 比如，使用一个可靠的时间戳服务器的分布式区块共识是很琐细的。规则“接受在上个区块之后15秒内产生的具有最高手续费的区块”可以获得区块共识。这个规则唯一的确定了一个唯一的后继区块。事实上，如果一个精确的并且诚实的时间戳服务存在的话，那么这个简单的规则可以不使用挖矿和在非常低操作成本下产生一次51%网络攻击。
 
 The original Obelisk design was based upon constructing a distributed timestamping, but only worked in a fully connected graph.  No distributed time stamping system could achieve provable consensus on the total ordering of events between all nodes in the network using only the local information available to individual nodes. Each node only sees a subset of the network. The fully connected case of a small number of servers is a special case where each node has a "global" view and eventually arrives at the same data and consesus as all other nodes. Public broadcast channels and fully connected graphs make the byzantine generals problem fairly trivial.
-原始的Obelish设计是基于构建一个分布式时间戳，但是仅仅在完全连通图中才能工作。仅仅使用对每个节点可用的本地信息，没有分布式时间戳系统能实现可被证明的在网络中所有节点中发生事件的总体排序的共识。每个节点仅仅看到网络的一个子集。比较小数目服务器的完全连通情况是每个节点都有“全局”视野并和其它节点最终到达相同数据和共识的一个特殊情况。公众广播频道和完全连通图让拜占庭将军问题相当琐细。
+原始的Obelish设计是基于构建一个分布式时间戳，但是仅仅在完全连通图中才能工作。仅仅使用对每个节点可用的本地信息，没有分布式时间戳系统能实现可被证明的在网络中所有节点中发生事件的总体排序的共识。每个节点仅仅看到网络的一个子集。比较小数目服务器的完全连通情况是每个节点都有“全局”视野并和其它节点最终到达相同数据和共识的一个特殊情况。公开广播频道和完全连通图让拜占庭将军问题相当琐细。
 
 While time stamp consensus and a full total ordering of events could not be achieved from the local information available to a node, randomized consensus allows provable global consenus from local information for non-pathological graph topologies. However, we were able to prove a weaker result which allows nodes to derive upper and lower bounds (a temporal interval) on events in the network. These bounds are local to each node or subset of nodes in the network and are very useful for detecting and preventing some type of Sybil attacks.
 由于从每个节点可用的本地信息不能实现时间戳共识和完全的时间总体排序，对非病态的拓扑结构图，随机化共识可以从本地信息提供可被证明的全局共识。尽管如此，我们之前能提供一个稍弱一点的结果，使得节点推导出网络中事件的上界和下界（一个时间区间）。这些边界对网络中每个节点或者节点子集是本地化的，并且对于检测和防止某些类型的Sybil攻击非常有用。
@@ -435,7 +435,7 @@ Distributed Time Stamping:
 ====
 
 We show how you can create a distributed timestamping authority using the Obelisk public broadcast channel, time stamped blocks and receipts for block acknowledgements.
-我们展示了你能如何使用Obelisk公众广播频道，时间戳区块和区块确认收据来创建一个分布式时间戳授权。
+我们展示了你能如何使用Obelisk公开广播频道，时间戳区块和区块确认收据来创建一个分布式时间戳授权。
 
 We want to create a system that allows us to prove with high certainty
 - the publication time of a block 
@@ -462,7 +462,7 @@ The public broadcast channel imposes several constraints
 - A node cannot publish a different version of an earlier block without detection (blocks are numbered and it would be detected if the node signed two different blocks with the same sequence number)
 - A node cannot backdate the time stamp on the receipt of a block, without delaying the publication of a block (timestamps only go up, time stamps increase monotonously with block sequence count)
 - A block in the middle of the chain cannot be changed without invalidating every block that comes after it (linked time stamping, each block header contains a hash of the previous block)
-公众广播频道强加了几个约束：
+公开广播频道强加了几个约束：
 - 一旦发布一个区块，它不能被取消发布 （区块被点对点的复制到所有订阅者。一旦一个区块已经被发布，它将扩展到所有订阅者。你必须销毁所有已经接收到区块的节点来从网络上擦除它）。
 - 一个节点不能发布一个之前区块的不同版本而不被检测到 （区块被编号并且如果节点使用同一个序列号签名了两个不同的区块将被检测到）
 - 在不延迟区块发布情况下，一个节点对于接收到的区块不能回溯时间戳 （时间戳仅仅增长，时间戳随着区块序列号单调增加）
@@ -508,7 +508,7 @@ You can show that, if a block  X1  published at time T, a cycle starting at a ho
 你可以证明，如果一个区块X1在时间T发布，一个cycle起始于一个诚实的节点并且在时间T2终止于同一个诚实节点T2，T<T2。这上确界了发行时间。如果我们有一个受信任节点的时间戳T1的后续区块X0的收据，T1<T。之前区块（X0）的收据的时间戳下确界了X1发行时间的间隔。这是利用单调增加时钟假设产生时间间隔的另外一种方式。
 
 Some nodes are honest and do not lie. Some nodes try to lie about timestamps and the order messages were received. If we have a cycle between dishonest nodes, the time stamps can be anything, subject to the constraint of the public broadcast channel. However if the cycle of receipts contains at least one honest node then it places a constraint on the timestamps.
-有一些节点是诚实的，并且不撒谎。有些节点试图对时间戳以及消息接收到的顺序撒谎。如在不诚实节点间有一个cycle，时间戳可能是任何值，取决于公众广播频道的约束。尽管如此，如果cycle的接收者包含至少一个诚实节点，那么它就会给时间戳放置一个约束。
+有一些节点是诚实的，并且不撒谎。有些节点试图对时间戳以及消息接收到的顺序撒谎。如在不诚实节点间有一个cycle，时间戳可能是任何值，取决于公开广播频道的约束。尽管如此，如果cycle的接收者包含至少一个诚实节点，那么它就会给时间戳放置一个约束。
 
 If we have a cycle of receipts, A -> B, B-> C, we say that the two cycles "interlink". Cycles between receipts within the subgraph of honest nodes interlink broadly. The multiple, interlinking timestamp and receipts form a dense interlinked mesh. If you say something existed at time 3, but did not publish it to network until time 8, all the honest nodes in network will have a timestamp of your block announcing the thing, with time greater than or equal to 8. Only nodes on a subgraph of lying or cheating nodes will have a lower timestamp.
 假设我们有一个cycle的接收者，A->B，B->C，我们称这两个cycles“互连”。接收者之间的cycles在诚实节点子图内宽广的互连。多个互联的时间戳和收据形成了一个密集的互联网孔。如果你说在时间3存在什么事情，但是直到时间8之前并没有将它发布到网络，网络中的所有诚实节点对你宣布那件事情的区块有时间戳，时间大约等于8。仅仅撒谎和欺诈的子图上的节点才会有更低的时间戳。
