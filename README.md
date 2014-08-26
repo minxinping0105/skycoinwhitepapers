@@ -347,7 +347,7 @@ Skycoin introduces a "consensus oracle" to protect banks and exchanges from targ
 Skycoin引入了一种“共识预报”来保护银行和交易平台防范在特定节点上的目标攻击。Skycoin共识预报采用一个用户选定的信任节点的公钥列表并且根据列表进行验证。结果的不同会触发一个警告提示用户该行为的存在以及防范措施，比如在资金被窃钱暂停交易平台提款。
 
 Publicly Verifiable Trusted Computing with Communicating Distributed Deterministic State Machines:
-采用分布式判决状态机通信的公开可验证的信任计算
+采用分布式判决状态机通信的公开可验证的可信性计算:
 =====
 
 We describe a system, where each node performs a computation in public. The computationa can be verified and replicated by any third party. This system consists of deterministic state machines communicating over a public broadcast channel (private blockchains).
@@ -580,7 +580,7 @@ Similarly, nodes can become automaticly untrusted for remaining connected to the
 类似的，对于剩余连接到的网络，不需要正当理由，节点能变得自动不受信任并且自发决定尝试撤销之前建立的共识。
 
 In Bitcoin the classical 51% attack, a miner with majority hash power forks the blockchain, keeping his blocks secret. The miner gets ahead of the network in secret and suddenly publishes his longer chain. The network instantly switches to the attackers longer chain. Transactions are reverted and coins may have been stolen from exchanges.
-在比特币经典的51%攻击中，一个具有绝大多数算力的矿工分叉了区块链，并且秘而不宣。矿工秘密的超过网络并且突然发布他自己更长的链。网络立即切换到攻击者更长的网络上。效益被撤销并且币可能会从交易平台窃取。
+在比特币经典的51%攻击中，一个具有绝大多数算力的矿工分叉了区块链，并且秘而不宣。矿工秘密的超过网络并且突然发布他自己更长的链。网络立即切换到攻击者更长的网络上。交易被撤销并且币可能会已经被从交易平台窃取。
 
 The evil miner deposited Bitcoin in an exchange, bought Litecoin, withdraws the litecoin and uses a 51% attack to revert the deposit transaction and get his Bitcoin back but keeping the Litecoin. Then he uses the Litecoin to buy back cheap Bitcoin after the theft hits the media. The miner further more buys put options on Bitcoin and further magnifies his gains. The evil miner also decides to rob a bank at the same time, by depositing Bitcoin, withdrawling the Bitcoin and then reverting the deposit transaction. He now has both the withdrawn coins and the coins he never deposited from any bank which has not taken extremely difficult security measures.
 邪恶矿工充值比特币到一个交易平台，买了莱特币，提取莱特币并使用51%攻击来撤销充值交易以重新获取他的比特币并且同时保留了莱特比。之后当盗窃事件在媒体发布后，他使用莱特币来便宜买回比特币。矿工甚至可以买空比特币来进一步扩大他的手艺。邪恶矿工同时决定来抢劫一个银行，通过存入比特币，提取比特币并且然后撤销充值交易。他现在同时有了提取的币以及他从未充值的币，只要银行没有采取极其困难的安全措施。
@@ -598,7 +598,7 @@ With a global consensus oracle, the votes for the fork become weighted by the be
 通过全局共识oracle，对分叉的投票被下面的观点所加权，刻意的改变是一个合法过程的结果，指通过网络中哪些节点达成一致（网络仍然到达了全局共识），或者是否一致性在很长时间之前已经无争议的达成，并且这仅仅是一次试图撤销之前共识（如果在活跃节点间全局共识已经无争议之后，这将是不正确的）的攻击尝试。
 
 Another prospective approach uses a hybrid system of Ben Or randomized consensus on a web of trust to vote a commitee of trusted masternodes, who form a fully connected public Quorum which determines block consensus. The commitee election might be daily and more resources can be put into verifying global consensus on the single commitee election than verifying consensus on individual blocks.
-另外一种可能的方式可使用一种Ben Or随机化共识的混合系统，它基于信任网络来投票受信任主节点委员会从而形成了一个完全互连的公开的Quorum，用来决定区块共识，
+另外一种可能的方式可使用一种Ben Or随机化共识的混合系统，它基于信任网络来投票受信任主节点委员会从而形成了一个完全互连的公开的Quorum，用来决定区块共识。
 
 We are looking at several different approaches. Skycoin consensus will change as we develop better algorithms and software infrastructure.
-我们正在研究集中不同的方式。Skycoin共识将随着我们开发更好的算法和软件框架而改变。
+我们正在研究几种不同的方式。Skycoin共识将随着我们开发更好的算法和软件框架而改变。
