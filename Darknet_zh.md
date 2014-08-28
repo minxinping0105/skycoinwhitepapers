@@ -1,4 +1,14 @@
+Skycoin的Darknet计划白皮书草稿
 
+英文原版地址：https://github.com/skycoin/whitepapers
+
+中文翻译地址：https://github.com/zccoin/skycoinwhitepapers
+
+译者：招财币冷月 新浪微博 @招财币冷月
+
+BTC捐赠地址：1HLnkctB8dN4AcorjsJK493pHL7rUSVfzm
+
+ZCC捐赠地址：ZVX7namJi8CinMQbFruzHA27eW53qTznXW
 
 Darknet计划
 ============
