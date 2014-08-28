@@ -13,7 +13,7 @@ ZCC捐赠地址：ZVX7namJi8CinMQbFruzHA27eW53qTznXW
 Darknet计划
 ============
 
-Skycoin Darknet是一个受cjdns启发的高性能，具有隐私保护的路由协议。用户通过贡献资源到网络来获取skycoin并且未使用网络资源而付出资源。
+Skycoin Darknet是一个受cjdns启发的高性能，具有隐私保护的路由协议。用户通过贡献资源到网络来获取skycoin并且为使用网络资源而付出资源。
 
 这个协议被设计用来在传统互联网上运行，并且节点通过wifi物理性连接。长期目标是创建远程点对点wifi链接而绕过现有的互联网供应商。
 
@@ -28,7 +28,7 @@ https://docs.google.com/document/d/1_rPNMTokwmBPFel1pZfLbTtTkooSWtGKrTLB3RbXIrI
 用户案例：链路聚合
 ===============================
 
-Bob有一个2 Mb/s的互联网连接。它需要花费Bob几分钟来加载Youtube视频。Bob有五个有2 Mb/s链接的邻居。他们安装Skycoin节点。Bobi的Skycoin节点链接通过wifi连接到他的邻居并且聚合带宽，给Bob带来了12 Mb/s连接。
+Bob有一个2 Mb/s的互联网连接。它需要花费Bob几分钟来加载Youtube视频。Bob有五个有2 Mb/s链接的邻居。他们安装Skycoin节点。Bob的Skycoin节点链接通过wifi连接到他的邻居并且聚合带宽，给Bob带来了12 Mb/s连接。
 
 Bob接受Skycoin用于传递流量并且为了使用网络资源而花费Skycoin。
 
@@ -52,11 +52,11 @@ Alice在FCC搞定公共运营访问规则前有更便宜更快的互联网。现
 
 自从网络中立性被秘密的，甚至国会议员在被签署前并不被允许看到或者投票的后门国际协定搞定了之后，Alice的ISP正变的越来越糟。
 
-Alice的Youtube和Netflix视频比之前加载更慢。Alice的ISP已经开始限制Netflix，Youtube和Bittorrent，并且公开拒绝它。
+Alice的Youtube和Netflix视频比之前加载更慢。Alice的ISP已经开始限制Netflix，Youtube和Bittorrent，并且公开抵制它们。
 
-Alice的ISP开始跟踪她访问的每个站点，记录她的个人信息并且卖给NSA和营销公司。Alice的ISP已经开始从Alice访问的网站窃取回报，把网站的广告替换成它自己的。Alice的ISP开始黑名单他不喜欢的网站。
+Alice的ISP开始跟踪她访问的每个站点，记录她的个人信息并且卖给NSA和营销公司。Alice的ISP已经开始从Alice访问的网站窃取利润，把网站的广告替换成它自己的。Alice的ISP开始黑名单它不喜欢的网站。
 
-Alice听说了Skycoin，发现另外一个Skycoin用户有一个托管中心的办公室。Alice在她的房顶花了$1500并且安装了1.4 Gb/秒的Ubiquity airFiber天线来桥接她和骨干光纤的距离。Alice的网络作为她的邻居们本地Skycoin mesh的回程。
+Alice听说了Skycoin，发现另外一个Skycoin用户有一个位于托管中心的办公室。Alice在她的房顶花了$1500并且安装了1.4 Gb/秒的Ubiquity airFiber天线来桥接她和骨干光纤的距离。Alice的网络作为她的邻居们本地Skycoin mesh的回程。
 
 Alice取消了她的网络服务。
 
@@ -76,7 +76,7 @@ Alice取消了她的网络服务。
 
 Wifi设备：
 - Edimax EW-7811Un (良好的Linux支持)
-- TP-LINK TL-WN722N (外部天线支持远程方向性链接)
+- TP-LINK TL-WN722N (外部天线支持远程方向性连接)
 
 方向性天线:
 - TP-LINK TL-ANT2424B 24dBi 60 cm 方向性网格抛物线天线。 直线无遮挡下最高10英里范围。
@@ -97,7 +97,7 @@ Wifi设备：
 
 设计目标:
 - 隐私保护
-- 提供贷款，存储和回程给予虚拟货币激励
+- 提供带宽，存储和回程给予虚拟货币激励
 - 开放访问的Wifi mesh网络
 - 设计用来桥接骨干网络和家之间最后一英里
 - "零配置"。即插即用,无需配置
@@ -113,7 +113,7 @@ Wifi设备：
 
 连接层：
 - 打开到远程主机的TCP套接字。使用带curve secp256k1的ECDH建立ChaCha20对称session key。
-- 现在你拥有了到节点可以用来发送接收数据的双向链接
+- 现在你拥有了可以用来发送接收数据到节点的双向连接
 
 路由 v0.1：
 - 在每个节点，建立一个“路径”。路由中的每个节点，下一个节点注册并分配一个四字节整数。数据包的前缀四字节决定了数据被传递到的节点。
@@ -138,7 +138,7 @@ Wifi设备：
 - 路由是由流量发起端决定
 - 目标可以和发起端反向通信但是不能识别发起节点
 - 每次付款的消耗是120字节
-- 每个hop的消耗是4字节 （留给读者的练习：把它变为常数）
+- 每个hop的开销是4字节 （留给读者的练习：把它变为常数）
 - 协议中公钥从不明文暴露
 - 没有节点公钥不能和节点通信
 - 32位路由路径前缀信息应该由节点共享的密钥混淆
